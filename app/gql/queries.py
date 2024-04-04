@@ -1,5 +1,5 @@
 from graphene import ObjectType, List
-from app.qgl.types import JobObject, EmployerObject
+from app.gql.types import JobObject, EmployerObject
 from app.db.data import employers_data, jobs_data
 
 
