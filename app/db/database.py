@@ -24,3 +24,11 @@ def prepare_database ():
 
     session.commit()
     session.close()
+
+def retrive_data(table):
+    Base.metadata.create_all(engine)
+
+    session = Session()
+
+    return session.query(table).all()
+
