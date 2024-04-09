@@ -1,5 +1,6 @@
 from graphene import Schema, ObjectType, String, Int, List, Field
 from app.db.data import employers_data, jobs_data
+from sqlalchemy.orm import sessionmaker
 
 class EmployerObject(ObjectType):
     id = Int()
@@ -10,7 +11,7 @@ class EmployerObject(ObjectType):
 
     @staticmethod
     def resolve_jobs(root, info):
-        return [job for job in jobs_data if job ["employer_id"] == root["id"]]
+        return root.jobs
 
 class JobObject(ObjectType):
     id = Int()
@@ -21,4 +22,5 @@ class JobObject(ObjectType):
 
     @staticmethod
     def resolve_employer(root, info):
-        return next((employer for employer in employers_data if employer ["id"]== root["employer_id"]), None)
+        return root.employer 
+

@@ -7,7 +7,7 @@ Base = declarative_base()
 class Employer(Base):
     __tablename__ = "employers"
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String)
     contact_email = Column(String)
     industry = Column(String)
